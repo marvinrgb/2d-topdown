@@ -3,8 +3,8 @@ import Phaser from 'phaser'
 import * as types from './types'
 
 const sizes: types.sizes = {
-  height: 500,
-  width: 500
+  height: 720,
+  width: 1280
 }
 
 const gravity: number = 300;
@@ -15,11 +15,18 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-
+    this.load.tilemapTiledJSON('tilemap', 'assets/tilemaptest.json');
+    this.load.image('Doors', 'assets/sl/Tilesets/Doors.png')
+    this.load.image('Hills', 'assets/sl/Tilesets/Hills.png')
+    this.load.image('Grass', 'assets/sl/Tilesets/Grass.png')
+    this.load.image('Water', 'assets/sl/Tilesets/Water.png')
+    this.load.image('Wooden_House_Walls_Tileset', 'assets/sl/Tilesets/Wooden_House_Walls_Tileset.png')
   }
 
   create() {
+    const map = this.make.tilemap({ key: 'tilemap'});
 
+    const tileset = map.addTilesetImage()
   }
 
   update() {
